@@ -16,8 +16,8 @@ public class TrainSchedule extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_train_schedule);
 
-        //TextView textView = findViewById(R.id.view_options);
-        //registerForContextMenu(textView);
+        TextView textView = findViewById(R.id.view_options);
+        registerForContextMenu(textView);
     }
 
     @Override
@@ -37,8 +37,9 @@ public class TrainSchedule extends AppCompatActivity {
                 Intent intent2 = new Intent(this, View.class);
                 startActivity(intent2);
                 return true;
-             default:
-                 return  super.onContextItemSelected(item);
+            default:
+                return  super.onContextItemSelected(item);
         }
     }
 }
+

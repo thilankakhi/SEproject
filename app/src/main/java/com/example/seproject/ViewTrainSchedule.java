@@ -8,23 +8,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Calendar;
 
 public class ViewTrainSchedule extends AppCompatActivity {
 
+    private ImageView sback;
     private TextView displayDate;
     private DatePickerDialog.OnDateSetListener dateSetListener;
-    private Button viewScheduleButton;
+    private TextView viewScheduleButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_train_schedule);
 
-        viewScheduleButton = (Button) findViewById(R.id.view_schedule_bt);
+        viewScheduleButton = (TextView) findViewById(R.id.view_schedule);
         displayDate = (TextView) findViewById(R.id.date);
+        sback = (ImageView)findViewById(R.id.sback);
 
         displayDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +50,7 @@ public class ViewTrainSchedule extends AppCompatActivity {
         dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                String date = month + "/" + dayOfMonth + "/" + year;
+                String date ="Date : "+ month + "/" + dayOfMonth + "/" + year;
                 displayDate.setText(date);
             }
         };
@@ -58,10 +61,19 @@ public class ViewTrainSchedule extends AppCompatActivity {
                 openTrainSchedule();
             }
         });
+        sback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent it = new Intent(ViewTrainSchedule.this, MainMenu.class);
+                startActivity(it);
+
+            }
+        });
     }
 
     public void openTrainSchedule(){
-        Intent intent = new Intent(this, TrainSchedule.class);
+        Intent intent = new Intent(ViewTrainSchedule.this, TrainSchedule.class);
         startActivity(intent);
     }
 }

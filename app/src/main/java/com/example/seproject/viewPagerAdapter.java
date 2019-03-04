@@ -13,11 +13,6 @@ public class viewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        //ViewFragment viewFragment = new ViewFragment();
-        //Bundle bundle = new Bundle();
-        //position = position + 1;
-        //bundle.putString("message", "Fragment : "+position);
-        //viewFragment.setArguments(bundle);
         Fragment fragment = null;
         switch (position){
             case 0:

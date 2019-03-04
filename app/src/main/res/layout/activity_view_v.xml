@@ -1,43 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View_v"
-    android:orientation="vertical">
+    android:fitsSystemWindows="true"
+    android:background="@drawable/img"
+    tools:context=".View_v">
 
-    <include layout="@layout/toolbar_layout" />
-
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tabs"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:elevation="4dp"
-        android:minHeight="?attr/actionBarSize"
-        app:tabGravity="fill"
-        app:tabMode="fixed"
-        app:tabSelectedTextColor="@color/colorAccent"
-        app:tabTextColor="#fff">
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="37dp"
+        android:orientation="horizontal">
 
-        <android.support.design.widget.TabItem
-            android:id="@+id/id1"
+        <ImageView
+            android:id="@+id/sback"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tab 1"/>
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:src="@drawable/left" />
 
-        <android.support.design.widget.TabItem
-            android:id="@+id/id2"
+        <ImageView
+            android:id="@+id/share"
+            android:layout_width="29dp"
+            android:layout_height="29dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="250dp"
+            android:src="@drawable/share" />
+
+        <ImageView
+            android:id="@+id/home"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tab 2"/>
+            android:layout_height="29dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:src="@drawable/home" />
 
-    </android.support.design.widget.TabLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="60dp">
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/id1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Current Location" />
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/id2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Expected Times" />
+
+        </android.support.design.widget.TabLayout>
+    </LinearLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="750dp"
+        android:layout_marginTop="150dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
